@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  aftersale-challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aftersale-challenge
+    command: bash -c "npm i && npm run start:dev"
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - '.:/app'
+    depends_on:
+      - mongochallenge
+    networks:
+      rede:
+
+  mongochallenge:
+    image: mongo
+    container_name: mongochallenge
+    ports:
+      - '27017:27017'
+    volumes:
+      - './data:/data/db'
+    networks:
+      rede:
+networks:
+  rede:
