@@ -6,6 +6,8 @@ import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProductsModule } from './products/products.module';
 import { AuthModule } from './auth/auth.module';
+import { YuresModule } from './yures/yures.module';
+import { SomethingModule } from './something/something.module';
 
 import config from './config/config';
 
@@ -15,6 +17,8 @@ import config from './config/config';
     UsersModule,
     ProductsModule,
     AuthModule,
+    YuresModule,
+    SomethingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
